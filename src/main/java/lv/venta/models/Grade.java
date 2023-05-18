@@ -38,7 +38,9 @@ public class Grade {
 	@JoinColumn(name = "Ids")//linked with column name with @Id
 	private Student student;
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "Idc")
+	private Course course;
 	
 	
 	
@@ -48,3 +50,29 @@ public class Grade {
 	
 	//TODO add constructor later
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
