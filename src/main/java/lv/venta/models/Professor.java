@@ -53,6 +53,7 @@ public class Professor {
 	private Degree degree;
 	
 	@OneToOne(mappedBy = "professor")
+	@ToString
 	private Course course; //lūdzu izveidot man ...
 	
 	
