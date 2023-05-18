@@ -57,14 +57,13 @@ public class Course {
 	private Collection<Grade> grades;
 
 
-	public Course(long idc, @NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z\\ ]+") String title,
-			@Min(1) @Max(20) int creditpoints, Professor professor, Collection<Grade> grades) {
-		super();
-		this.idc = idc;
+	public Course(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z\\ ]+") String title,
+			@Min(1) @Max(20) int creditpoints, Professor professor) {
+	
 		this.title = title;
 		this.creditpoints = creditpoints;
 		this.professor = professor;
-		this.grades = grades;
+		
 	}
 	
 	

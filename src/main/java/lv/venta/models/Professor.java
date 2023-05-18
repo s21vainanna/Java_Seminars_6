@@ -11,6 +11,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,14 +23,12 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-
 public class Professor {
-
+	
 	@Column(name = "Idp")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	
 	private long idp;
 	
 	//TODO add data JPA annotations
@@ -39,13 +38,13 @@ public class Professor {
 	@Column(name = "Name")
 	@NotNull
 	@Size(min = 3, max = 20)
-	@Pattern(regexp = "[A-Z] {1} [a-z]+")
+	@Pattern(regexp = "[A-Z]{1}[a-z]+")
 	private String name;
 	
 	@Column(name = "Surname")
 	@NotNull
 	@Size(min = 3, max = 20)
-	@Pattern(regexp = "[A-Z] {1} [a-z]+")
+	@Pattern(regexp = "[A-Z]{1}[a-z]+")
 	private String surname;
 	
 	@Column(name = "Degree")
@@ -53,17 +52,16 @@ public class Professor {
 	private Degree degree;
 	
 	@OneToOne(mappedBy = "professor")
-	@ToString
-	private Course course; //lūdzu izveidot man ...
+	@ToString.Exclude
+	private Course course;
 	
-	
-	
+		
 	public Professor(String name, String surname, Degree degree) {
 		this.name = name;
 		this.surname = surname;
 		this.degree = degree;
 	}
 	
+	
+	
 }
-	
-	

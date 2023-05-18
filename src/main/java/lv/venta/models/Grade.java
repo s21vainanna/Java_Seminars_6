@@ -42,8 +42,8 @@ public class Grade {
 	@JoinColumn(name = "Idc")
 	private Course course;
 
-	public Grade(long idg, @Min(0) @Max(10) int gvalue, Student student, Course course) {
-		this.idg = idg;
+	public Grade( @Min(0) @Max(10) int gvalue, Student student, Course course) {
+
 		this.gvalue = gvalue;
 		this.student = student;
 		this.course = course;
