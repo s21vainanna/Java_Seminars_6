@@ -38,12 +38,13 @@ public class Grade {
 	@JoinColumn(name = "Ids")//linked with column name with @Id
 	private Student student;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "Idc")
 	private Course course;
 
-	public Grade( @Min(0) @Max(10) int gvalue, Student student, Course course) {
 
+	public Grade(@Min(0) @Max(10) int gvalue, Student student, Course course) {
 		this.gvalue = gvalue;
 		this.student = student;
 		this.course = course;
@@ -51,35 +52,4 @@ public class Grade {
 	
 	
 	
-	
-	
-	
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
