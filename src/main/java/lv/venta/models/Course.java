@@ -1,5 +1,6 @@
 package lv.venta.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import jakarta.persistence.Column;
@@ -62,7 +63,7 @@ public class Course {
 			@Min(1) @Max(20) int creditpoints, ArrayList<Professor> professors) {
 		this.title = title;
 		this.creditpoints = creditpoints;
-		this.professor = professor;
+		this.professors = professors;
 	}
 	
 	public void addProfessor(Professor inputProfessor) {
@@ -71,9 +72,13 @@ public class Course {
 		}
 	}
 	
-	//TODO remove professor from arrayList
+	public void removeProfessor(Professor inputProfessor) {
+		if(professors.contains(inputProfessor)) {
+		professors.remove(inputProfessor);
+		}
+	}
 	
-
+		
 	
 }
 
