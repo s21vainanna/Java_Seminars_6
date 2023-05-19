@@ -27,7 +27,7 @@ public class JavaSeminar62023Application {
 		SpringApplication.run(JavaSeminar62023Application.class, args);
 	}
 	
-	@Bean
+	@Bean //palaižas automātiski startējot programmu
 	public CommandLineRunner testModel(IProfessorRepo prRepo, 
 			IStudentRepo stRepo, ICourseRepo coRepo, IGradeRepo grRepo) {
 		

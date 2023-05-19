@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -48,57 +49,33 @@ public class Course {
 	private int creditpoints;
 	
 	
-	@OneToOne
-	@JoinColumn(name = "Idp")
-	private Professor professor;
-	
+	@ManyToMany(mappedBy = "courses")
+	@ToString.Exclude
+	private Collection<Professor> professors = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "course")
+	@ToString.Exclude
 	private Collection<Grade> grades;
 
 
 	public Course(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z\\ ]+") String title,
-			@Min(1) @Max(20) int creditpoints, Professor professor) {
-	
+			@Min(1) @Max(20) int creditpoints, ArrayList<Professor> professors) {
 		this.title = title;
 		this.creditpoints = creditpoints;
 		this.professor = professor;
-		
 	}
 	
+	public void addProfessor(Professor inputProfessor) {
+		if(professors.contains(inputProfessor)) {
+			professors.add(inputProfessor);
+		}
+	}
 	
+	//TODO remove professor from arrayList
 	
-	
-	
-	
-	
+
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
